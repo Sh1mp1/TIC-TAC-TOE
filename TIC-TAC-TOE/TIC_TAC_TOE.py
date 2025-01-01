@@ -56,7 +56,7 @@ def computerTurn(board):
 
     #Takes middle block if empty
     if (board[4] == 5):
-        board[4] = -2;
+        board[4] = -2
         return
 
     #Takes any corner if empty
@@ -103,7 +103,7 @@ tie = True
 for i in range(1, 6):
     render(board)
 
-    playerTurn(board);
+    playerTurn(board)
 
     if (checkWin(board) == -1):
         print("YOU WIN!")
@@ -132,10 +132,3 @@ if (tie):
     print("ITS A DRAW!")
 
 input()
-    
-
-
-
-
-
-
