@@ -24,7 +24,11 @@ def checkWin(board): #Returns the player that has won (-1 for player , -2 for co
 def playerTurn(board):
     
     while (True):
-        choice = int(input("Enter your choice(1 - 9) : "))
+        choice = input("Enter your choice(1 - 9) : ")
+        if not choice.isdigit():
+            print("Please enter a valid number.")
+            continue
+        choice = int(choice)
         if (choice <= 0 or choice >= 10):
             print("Input out of range")
         elif (board[choice - 1] < 1):
@@ -39,7 +43,7 @@ def computerTurn(board):
     for i in range(0, 9):
         #Check for empty space
         if (board[i] == i + 1):
-            board[i] = -2   #Assume the bot moves here
+            board[i] = -2       #Assume the bot moves here
             if (checkWin(board) == -2):            
                 return
             board[i] = i + 1    #Undo the move
@@ -48,7 +52,7 @@ def computerTurn(board):
     for i in range(0, 9):
         #Check for empty space
         if (board[i] == i + 1):
-            board[i] = -1   #Assume the player moves here
+            board[i] = -1       #Assume the player moves here
             if (checkWin(board) == -1):
                 board[i] = -2
                 return
@@ -117,7 +121,7 @@ for i in range(1, 6):
 
     print("COMPUTER'S TURN")
 
-    time.sleep(1)
+    time.sleep(0.5)
 
     computerTurn(board)
 
